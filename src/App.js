@@ -52,7 +52,7 @@ function App() {
       if (!todo) return;
 
       const res = await axios.put(`${API_URL}/api/todos/${id}`, {
-        completed: !todo.completed,
+        completed: !completed,
       });
 
       setTodos((prev) =>
