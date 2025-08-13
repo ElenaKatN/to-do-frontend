@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Use deployed backend in production, localhost in development
 const API_URL =
-  process.env.REACT_APP_API_URL || "http://localhost:5000";
+  process.env.REACT_APP_API_URL || "http://localhost:5001";
 
 function App() {
   const [todos, setTodos] = useState([]);
