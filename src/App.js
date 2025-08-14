@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL; // full backend URL
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -34,9 +34,7 @@ function App() {
     if (!newTodo.trim()) return;
 
     try {
-      const res = await axios.post(`${API_URL}/api/todos`, {
-        task: newTodo,
-      });
+      const res = await axios.post(`${API_URL}/api/todos`, { task: newTodo });
       setTodos((prev) => [...prev, res.data]);
       setNewTodo("");
     } catch (err) {
@@ -52,7 +50,7 @@ function App() {
       if (!todo) return;
 
       const res = await axios.put(`${API_URL}/api/todos/${id}`, {
-        completed: !completed,
+        completed: !todo.completed,
       });
 
       setTodos((prev) =>
